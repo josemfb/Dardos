@@ -20,7 +20,9 @@ def dardo(puntajes_actuales=None, mensaje=None):
 
     # Crea un canvas
     board = Tk()
-    board.attributes('-fullscreen', True)
+    #board.wm_attributes('-fullscreen', True)
+    w, h = board.winfo_screenwidth(), board.winfo_screenheight()
+    board.geometry("%dx%d+0+0" % (w, h))
     board.title("Tablero")
     ancho_board = 700
     if puntajes_actuales:
@@ -29,6 +31,10 @@ def dardo(puntajes_actuales=None, mensaje=None):
     canvas = Canvas(board, width=ancho_board, height=alto_board)
     canvas.pack()
 
+    # Crea un cuadrado para el tablero
+    coord = 0, 0, 700, 700
+    canvas.create_rectangle(coord, fill="black", tags="0S")
+
     # Crea los numeros
     posiciones = [6, 13, 4, 18, 1, 20, 5, 12, 9, 14,
                   11, 8, 16, 7, 19, 3, 17, 2, 15, 10]
@@ -36,7 +42,8 @@ def dardo(puntajes_actuales=None, mensaje=None):
     saltos = "\n" * 24
     for i in posiciones:
         coord = 350, 350
-        canvas.create_text(coord, angle=-90 + (k * 18), text=str(i) + saltos, font=("Sans", 18))
+        texto = str(i) + saltos
+        canvas.create_text(coord, angle=-90 + (k * 18), text=texto, fill="white", font=("Sans", 18))
         k += 1
 
     # Crea el tablero de dardos
