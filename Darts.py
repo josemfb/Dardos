@@ -36,11 +36,12 @@ def juego():
 
 # TODO: implementar graficamente y no por consola
 def solicita_jugadores():
-    jugador = int(input("Ingrese el numero de jugadores\n"))
+    print("Ingrese el numero de jugadores")
+    jugador = int(input())
     lista = [""]
     for i in range(jugador):
-        texto = "Ingrese el nombre del Jugador " + str(i + 1) + "\n"
-        aux = input(texto)
+        print("Ingrese el nombre del Jugador", str(i + 1))
+        aux = input()
         lista.append(aux)
     lista.pop(0)
     return lista
