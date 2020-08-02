@@ -162,6 +162,7 @@ def calcula_puntos(num, mult):
 
 class Juego:
 
+    # Inicializa un tablero de puntajes
     def __init__(self, lista_jugadores, lista_de_juego):
         self.puntajes = []
         aux = [""] + lista_de_juego
@@ -173,22 +174,27 @@ class Juego:
                 auxiliar.append("")
             self.puntajes.append(auxiliar)
 
+    # Devuelve los puntos de un jugador en una ronda específica
     def entrega_puntos(self, jug, pos):
         return int(self.puntajes[jug][pos])
 
+    # Cambia los puntos de un jugador en una ronda específica
     def actualizar_puntajes(self, jug, pos, ptje):
         self.puntajes[jug][pos] = ptje
 
+    # Agrega puntos a un jugador en una ronda específica
     def sumar_puntajes(self, jug, pos, ptje):
         if not self.puntajes[jug][pos]:
             self.puntajes[jug][pos] = 0
         self.puntajes[jug][pos] += ptje
 
+    # Resta puntos a un jugador en una ronda específica
     def restar_puntajes(self, jug, pos, ptje):
         if not self.puntajes[jug][pos]:
             self.puntajes[jug][pos] = 0
         self.puntajes[jug][pos] -= ptje
 
+    # Entrega una lista de los jugadores con mayor puntaje en una ronda específica
     def entrega_mayor(self, pos):
         retorno = [self.puntajes[1][0]]
         posiciones = [1]
@@ -201,6 +207,7 @@ class Juego:
                 retorno = [self.puntajes[i][0]]
         return retorno
 
+    # Entrega una lista de los jugadores con menor puntaje en una ronda específica
     def entrega_menor(self, pos):
         retorno = [self.puntajes[1][0]]
         posiciones = [1]
@@ -213,6 +220,7 @@ class Juego:
                 retorno = [self.puntajes[i][pos-1]]
         return retorno
 
+    # Imprime por consola la tabla de puntajes
     def imprime_consola(self):
         for q in range(0, len(self.puntajes[0])):
             aux = []
