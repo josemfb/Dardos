@@ -8,7 +8,7 @@ import modo_puntaje
 # TODO: implementar graficamente y no por consola
 def juego():
     print("Bienvenido")
-    print("Que desea jugar?")
+    print("¿Qué desea jugar?")
     print("1. Modo chupar poto")
     print("2. Modo Focker")
     print("3. Practica")
@@ -24,10 +24,8 @@ def juego():
         # TODO: implementar
         modo_practica.run(solicita_jugadores())
     elif game == 4:
-        # TODO: implementar
         modo_puntaje.run(solicita_jugadores())
     elif game == 5:
-        # TODO: implementar
         os._exit(0)
     else:
         print("Tonto")
